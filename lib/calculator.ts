@@ -3,6 +3,7 @@ export function calculateReport(data: {
     water: string;
     waste: string;
     transport: string;
+
 }) {
     const electricity = Number(data.electricity) * 0.5;
     const water = Number(data.water) * 0.2;
@@ -19,6 +20,6 @@ export function calculateReport(data: {
         electricity,
         water,
         waste,
-        transport,
+        transport
     };
 }
