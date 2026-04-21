@@ -17,7 +17,7 @@ export default function AssessmentPage() {
         industryType: "",
         wasteCategory: ""
     });
-    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
@@ -29,7 +29,7 @@ export default function AssessmentPage() {
         const report = calculateReport(formData);
 
         localStorage.setItem("tracegreenReport", JSON.stringify(report));
-        
+
         router.push("/dashboard");
     }
 
@@ -98,22 +98,35 @@ export default function AssessmentPage() {
                 />
 
                 <label>Industry Type</label>
-                <input
+                <select
                     name="industryType"
-                    placeholder="Industry Type"
                     value={formData.industryType}
                     onChange={handleChange}
                     className="w-full p-3 border rounded"
-                />
+                >
+                    <option value="">Select Industry</option>
+                    <option value="Retail">Retail</option>
+                    <option value="Office">Office</option>
+                    <option value="Restaurant">Restaurant</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Logistics">Logistics</option>
+                </select>
 
                 <label>Waste Category</label>
-                <input
+                <select
                     name="wasteCategory"
                     placeholder="Waste Category"
                     value={formData.wasteCategory}
                     onChange={handleChange}
                     className="w-full p-3 border rounded"
-                />
+                >
+                    <option value="">Select Waste Type</option>
+                    <option value="Paper">Paper</option>
+                    <option value="Plastic">Plastic</option>
+                    <option value="Food Waste">Food Waste</option>
+                    <option value="Electronic Waste">Electronic Waste</option>
+                    <option value="Mixed">Mixed</option>
+                </select>
 
                 <div className="flex justify-center pt-4">
                     <button className="bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition" type="submit">
