@@ -115,7 +115,6 @@ export default function AssessmentPage() {
                 <label>Waste Category</label>
                 <select
                     name="wasteCategory"
-                    placeholder="Waste Category"
                     value={formData.wasteCategory}
                     onChange={handleChange}
                     className="w-full p-3 border rounded"
