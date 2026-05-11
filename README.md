@@ -1,26 +1,61 @@
-# TraceGreen
-TraceGreen is a web-based sustainability dashboard designed for small and medium-sized businesses. It allows users to enter basic operational data such as electricity, water, waste, and transport usage, then generates a sustainability score, impact breakdown, and practical recommendations for improvement.
+# 🌱 TraceGreen – Sustainability Assessment Tool
 
-## Features
-- Input form for sustainability assessment
-- Automatic sustainability score calculation
-- Dashboard with impact breakdown
-- Highest impact source detection
-- Recommendation engine
-- Scenario simulator for reduction planning
+TraceGreen is a web-based application designed to help small and medium-sized businesses evaluate their environmental impact based on key operational inputs such as electricity usage, water consumption, waste generation, and transportation.
+
+The system provides a simple assessment workflow and generates a sustainability score along with actionable recommendations.
 
 
-## Tech Stack
-- Next.js
-- TypeScript
-- Tailwind CSS
-- Recharts
-- Browser localStorage
+## Key Features
 
-## Project Purpose
-This project was built to demonstrate how small businesses can track environmental performance in a simple and accessible way without relying on complex enterprise software.
+- Interactive assessment form with structured input fields
+- Real-time sustainability score calculation
+- Impact breakdown (electricity, water, waste, transport)
+- Data visualization using charts
+- Recommendation engine based on impact analysis
+- Report history stored in Supabase database
+- Edit and update existing reports
+- Responsive UI (mobile & desktop friendly)
 
-## Run Locally
-```bash
-npm install
-npm run dev
+
+##  System Logic Overview
+
+The application follows a simple but structured flow:
+1. User submits assessment form
+2. System calculates sustainability score and impact
+3. Data is stored in Supabase (INSERT)
+4. If editing an existing report → system performs UPDATE instead of creating duplicates
+5. Dashboard displays summary and insights
+6. History page allows retrieval and modification of past records
+
+
+##  Tech Stack
+
+- **Frontend:** Next.js (App Router), TypeScript
+- **Styling:** Tailwind CSS
+- **Backend-as-a-Service:** Supabase (PostgreSQL + API)
+- **Charting:** Recharts
+- **State Handling:** localStorage + Supabase integration
+
+
+##  Key Implementation Highlights
+
+- Implemented conditional logic to switch between INSERT and UPDATE operations
+- Prevented duplicate database records during edit flow
+- Managed client-side state persistence using localStorage
+- Designed clean UI with reusable layout structure
+- Integrated Supabase with proper row-level security handling
+
+
+##  Future Improvements
+
+- Export report to PDF
+- Add user authentication
+- Implement report version history
+- Add delete functionality (full CRUD)
+- Improve analytics and benchmarking
+
+
+##  Project Purpose
+
+This project was developed as part of a learning initiative to strengthen full-stack development skills, particularly in building structured web applications with real-world data flow and database interaction.
+
