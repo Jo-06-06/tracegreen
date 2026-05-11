@@ -1,16 +1,24 @@
 export function getRecommendations(report: any) {
-    const tips = [];
+    const tips: string[] = [];
 
-    if (report.electricity > 50) {
+    if (report.electricity > 40) {
         tips.push("Reduce electricity usage during peak hours.");
     }
 
-    if (report.transport > 50) {
-        tips.push("Encourage carpooling or optimize logistics routes.");
+    if (report.water > 20) {
+        tips.push("Implement water-saving practices.");
     }
 
-    if (report.waste > 20) {
-        tips.push("Improve recycling and reduce disposable materials");
+    if (report.waste > 10) {
+        tips.push("Improve waste recycling and management.");
+    }
+
+    if (report.transport > 20) {
+        tips.push("Optimize logistics or reduce travel.");
+    }
+
+    if (tips.length === 0) {
+        tips.push("Your sustainability performance is good. Keep it up.");
     }
 
     return tips;
